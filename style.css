@@ -2,12 +2,24 @@
   margin: 0px;
   padding: 0px;
 }
-
+:root {
+  --fundo: #f7f7f7;
+  --texto-menu: black;
+  --background-menu: white;
+  --background-info1: white;
+  --texto-info1: black;
+  --texto-info1-a: white;
+  --texto-vantagens: #c6c6c6;
+  --background-info2: white;
+  --texto-info2: black;
+  --background-rodape: white;
+  --texto-rodape: black;
+}
 body {
   margin: 0px;
   padding: 0px;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #f7f7f7;
+  background-color: var(--fundo);
   display: grid;
   justify-items: center;
   margin-top: 60px;
@@ -38,8 +50,8 @@ a {
 }
 .menu a {
   display: inline-block;
-  color: black;
-  background-color: white;
+  color: var(--texto-menu);
+  background-color: var(--background-menu);
   padding: 15px 25px;
   border: 1px solid transparent;
 }
@@ -53,7 +65,8 @@ a {
 }
 
 .info-principal {
-  background-color: white;
+  background-color: var(--background-info1);
+  color: var(--texto-info1);
   text-align: end;
   padding: 40px;
   display: grid;
@@ -65,7 +78,7 @@ a {
 .info-principal a {
   background-color: #ee2211;
   padding: 15px 25px;
-  color: white;
+  color: var(--texto-info1-a);
   border-radius: 4px;
 }
 
@@ -77,13 +90,14 @@ a {
   font-size: 64px;
   text-align: end;
   align-self: center;
-  color: #c6c6c6;
+  color: var(--texto-vantagens);
   font-weight: 600;
   padding-right: 60px;
 }
 
 .info-secundaria {
-  background-color: white;
+  background-color: var(--background-info2);
+  color: var(--texto-info2);
   padding: 50px;
   gap: 40px;
   display: grid;
@@ -95,9 +109,51 @@ h3 {
 }
 
 .rodape {
-  background-color: white;
+  background-color: var(--background-rodape);
+  color: var(--texto-rodape);
   width: 100%;
   text-align: center;
   padding: 30px;
   box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fundo: #2e2e2e;
+    --texto-menu: white;
+    --background-menu: #1e1e1e;
+    --background-info1: #1e1e1e;
+    --texto-info1: white;
+    --texto-info1-a: #white;
+    --texto-vantagens: white;
+    --background-info2: #1e1e1e;
+    --texto-info2: white;
+    --background-rodape: #1e1e1e;
+    --texto-rodape: white;
+  }
+}
+
+@media (max-width: 900px) {
+  .info-principal,
+  .info-secundaria {
+    word-break: break-all;
+  }
+  img {
+    max-width: 100%;
+  }
+  .vantagens {
+    text-align: center;
+  }
+  .container {
+    grid-template-columns: 1fr;
+  }
+  .menu {
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 500px) {
+  .vantagens {
+    font-size: 46px;
+    padding: 20px 0px 20px 0px;
+  }
 }
